@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataBinding.BindingPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="slElementBinding" 
+                         HorizontalOptions="Center">
+                <BoxView HeightRequest="100" 
+                         WidthRequest="{Binding Path=Value}"
+                         BindingContext="{x:Reference mySlider}"
+                         BackgroundColor="SteelBlue" />
+                <Slider x:Name="mySlider" Maximum="200" />
+            </StackLayout>
+
+            <StackLayout x:Name="slRotationBinding"
+                         HorizontalOptions="Center" >
+                <Label Text="Rotation"
+                       BindingContext="{x:Reference rotationSlider}"
+                       Rotation="{Binding Path=Value}"
+                       FontAttributes="Bold" 
+                       FontSize="Large" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand" />
+                <Slider x:Name="rotationSlider" Maximum="360" />
+
+            </StackLayout>
+
+            <StackLayout x:Name="slCalculator" 
+                         Orientation="Horizontal" 
+                         Margin="20"
+                         HorizontalOptions="Center" >
+                <Entry x:Name="entryArg1" Placeholder="0" 
+                       Text="{Binding Path=Arg1, Mode=TwoWay}"/>
+                <Label Text="  +  " />
+                <Entry x:Name="entryArg2" Placeholder="0" 
+                       Text="{Binding Path=Arg2, Mode=TwoWay}" />
+                <Label Text="  =  " />
+                <Label x:Name="lblAnswer " 
+                       Text="{Binding Path=AnswerValue, Mode=OneWay }" />
+            </StackLayout>
+            <Button x:Name="changeValuesBtn" Text="Change Values" 
+                    Clicked="changeValuesBtn_Clicked" />
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

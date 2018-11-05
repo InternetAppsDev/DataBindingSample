@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DataBinding"
+             x:Class="DataBinding.MainPage"
+             >
+
+    <StackLayout VerticalOptions="Center" >
+
+        <Entry x:Name="entryUsername" Placeholder="Username"
+               HorizontalOptions="Center" 
+               Text="yournam@gmail.com"
+               TextColor="{StaticResource blueColor}" 
+               Keyboard="Email" />
+        <Entry x:Name="entryPassword" Placeholder="Password"
+               HorizontalOptions="Center" 
+               Text="test"
+               TextColor="{StaticResource blueColor}" 
+               IsPassword="True" />
+        <Button x:Name="loginButton" Text="Login" 
+                Clicked="loginButton_Clicked"
+                Style="{StaticResource normalButton}"/>
+
+
+    </StackLayout>
+
+</ContentPage>
